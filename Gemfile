@@ -7,6 +7,10 @@ gem 'rails', '~> 7.1.1'
 
 gem 'pg'
 
+gem 'devise'
+
+gem 'letter_opener'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
