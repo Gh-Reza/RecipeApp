@@ -2,9 +2,9 @@
   <ul>
     <% @recipes.each do |recipe| %>
       <li>
-        <div>
-          <%= recipe.name %>
-        </div>
+          <div>
+            <%=link_to recipe.name, recipe_path(recipe.id) %>
+          </div>
         <div>
           <%= recipe.description %>
         </div>
