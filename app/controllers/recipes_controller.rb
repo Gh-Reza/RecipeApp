@@ -1,3 +1,15 @@
 class RecipesController < ApplicationController
-  def index; end
+  def index
+    @recipes = Recipe.where(user_id: current_user.id)
+  end
+
+  def new
+    @recipe = Recipe.new 
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
+  end
 end
