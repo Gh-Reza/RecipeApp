@@ -1,1 +1,19 @@
-Recipes page
+<section class="recipe">
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+          <div>
+            <%=link_to recipe.name, recipe_path(recipe.id) %>
+          </div>
+        <div>
+          <%= recipe.description %>
+        </div>
+        <div>
+          <%= button_to "Remove", recipe_path(recipe.id), method: :delete%>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add new recipe", new_recipe_path %>
+</section>

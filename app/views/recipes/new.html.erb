@@ -1,0 +1,11 @@
+<h2>Add New Recipe</h2>
+
+<%= form_with model: @recipe, url: recipes_path, local: true, method: :post do |form|%>
+  <div>
+    <%= form.text_field :name, placeholder: "Name" %> <br>
+    <%= form.text_area :description, placeholder: "Description" %> <br>
+    <%= form.text_field :prepraration_time, placeholder: "Preparation Time" %> <br>
+    <%= form.text_field :cooking_time, placeholder: "Cook Time" %> <br>
+    <%= form.submit 'Add recipe' %>
+  </div>
+<% end %>
