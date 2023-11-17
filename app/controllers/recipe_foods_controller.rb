@@ -9,11 +9,9 @@ class RecipeFoodsController < ApplicationController
 
   def create
     @new_ingredient = RecipeFood.new(recipe_food_params)
-    if @new_ingredient.save
-      redirect_to recipe_path(@new_ingredient.recipe_id), notice: 'Ingredient was successfully created.'
-    else
+    return unless @new_ingredient.save
 
-    end
+    redirect_to recipe_path(@new_ingredient.recipe_id), notice: 'Ingredient was successfully created.'
   end
 
   private
