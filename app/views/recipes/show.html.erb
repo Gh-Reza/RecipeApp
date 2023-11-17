@@ -18,6 +18,37 @@
     <%= link_to 'Generate shopping list' %>
     <%= link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) %>
   </div>
+  <div>
+<!--    <h3>Ingredients</h3>-->
+<!--    <ul>-->
+      <%# @foods.each do |food| %>
+<!--        <li><%#= food.name %> <%#= food.quantity %> <%#= food.measurement_unit %></li>-->
+      <%# end %>
+<!--    </ul>-->
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe_foods.each do |item| %>
+          <tr>
+            <td><%= item.food.name %></td>
+            <td><%= item.quantity %> <%= item.food.measurement_unit %></td>
+            <td><%= item.food.price * item.quantity %></td>
+            <td>
+              <%= button_to "Edit"%>
+              <%#= link_to 'Delete', recipe_food_path(recipe_id: @recipe.id, id: item.food.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= button_to "Remove", recipe_food_path(item.id), method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
 </section>
 
 <script type="text/javascript" charset="utf-8">
