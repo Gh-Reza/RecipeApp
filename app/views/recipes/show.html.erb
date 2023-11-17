@@ -14,6 +14,10 @@
       </label>
     </div>
   </div>
+  <div>
+    <%= link_to 'Generate shopping list' %>
+    <%= link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) %>
+  </div>
 </section>
 
 <script type="text/javascript" charset="utf-8">
