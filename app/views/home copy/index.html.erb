@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Food Paradise</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    header ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+
+    header ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    section#hero {
+      background-image: url('food-hero.jpg'); /* Add your hero image URL */
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    section#hero h1 {
+      font-size: 36px;
+    }
+
+    section#hero p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    section#hero .cta-button {
+      display: inline-block;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    section#about {
+      background-color: #fff;
+      padding: 40px;
+    }
+
+    section#about h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    section#about p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    section#recipes {
+      background-color: #f8f8f8;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    section#recipes h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .recipe-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .recipe-card {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 250px;
+    }
+
+    .recipe-card img {
+      max-width: 100%;
+    }
+
+    .recipe-card h3 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .recipe-card p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    section#blog {
+      background-color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    section#blog h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .blog-posts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .blog-post {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .blog-post img {
+      max-width: 100%;
+    }
+
+    .blog-post h3 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .blog-post p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    section#contact {
+      background-color: #f8f8f8;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    section#contact h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    section#contact p {
+      font-size: 16px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form input[type="submit"] {
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .social-media-links {
+      margin-top: 20px;
+    }
+
+    .social-media-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <section id="hero">
+    <!-- Create a visually appealing hero section with a beautiful food-related image -->
+    <h1>Welcome to Food Paradise, <%= current_user.name %>!</h1>
+    <p>Discover the art of cooking and explore delicious recipes.</p>
+    <a href="#recipes" class="cta-button">Explore Recipes</a>
+  </section>
+
+
+  <section id="about">
+    <!-- Add an "About Us" section to introduce your website -->
+    <h2>About Us</h2>
+    <p>At Food Paradise, we are passionate about food and cooking. Our mission is to inspire your culinary journey and share mouthwatering recipes with you.</p>
+  </section>
+
+  <section id="recipes">
+    <!-- Showcase some featured recipes or categories -->
+    <h2>Featured Recipes</h2>
+    <div class="recipe-cards">
+      <!-- Create visually appealing recipe cards with images and descriptions -->
+      <!-- You can use CSS to style these cards -->
+    </div>
+  </section>
+
+  <section id="blog">
+    <!-- Include a blog section to share food-related articles -->
+    <h2>Our Blog</h2>
+    <div class="blog-posts">
+      <!-- Create stylish blog post cards with images and summaries -->
+      <!-- Use CSS to make them visually appealing -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <!-- Add a contact section with a form for user inquiries -->
+    <h2>Contact Us</h2>
+    <p>Have questions or suggestions? Contact us!</p>
+    <form>
+      <!-- Create a contact form with fields for name, email, message, etc. -->
+      <!-- You can use HTML and CSS to style the form -->
+    </form>
+  </section>
+
+  <footer>
+    <!-- Include a footer section with links to social media and other relevant information -->
+    <div class="social-media-links">
+      <!-- Add icons and links to your social media profiles -->
+    </div>
+    <p>&copy; Created by Moyasi & Raphael 2023</p>
+  </footer>
+</body>
+</html>
