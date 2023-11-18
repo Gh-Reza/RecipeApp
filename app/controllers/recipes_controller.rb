@@ -1,6 +1,12 @@
 class RecipesController < ApplicationController
+  # def index
+  #   @recipes = Recipe.where(user_id: current_user.id)
+  # end
+
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    redirect_to public_recipes_path unless current_user
+
+    @recipes = current_user.recipes
   end
 
   def new
