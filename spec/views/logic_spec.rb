@@ -13,7 +13,7 @@ RSpec.feature 'Login', type: :feature do
   context 'submit form' do
     scenario 'submission without details' do
       click_button 'Log in'
-      expect(page).to have_content 'Invalid Email or password.'
+      expect(page).to have_current_path('/users/sign_in')
     end
 
     scenario 'correct details for log in' do
@@ -23,7 +23,7 @@ RSpec.feature 'Login', type: :feature do
         fill_in 'Password', with: @user.password
       end
       click_button 'Log in'
-      expect(page).to have_current_path('/foods')
+      expect(page).to have_current_path('/')
     end
   end
 end

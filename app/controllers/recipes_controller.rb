@@ -1,6 +1,12 @@
 class RecipesController < ApplicationController
+  # def index
+  #   @recipes = Recipe.where(user_id: current_user.id)
+  # end
+
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    redirect_to public_recipes_path unless current_user
+
+    @recipes = current_user.recipes.includes(:recipe_foods)
   end
 
   def new
@@ -12,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
     @recipe_foods = @recipe.recipe_foods
   end
 
