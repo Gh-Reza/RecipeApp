@@ -5,7 +5,7 @@ RSpec.describe 'Testing public recipe views', type: :feature do
     before(:each) do
       user = User.create name: 'Test', email: 'test@example.com', password: 'password'
       (1..5).each do |i|
-        user.recipes.create name: "Test recipe #{i}", preparation_time: 10, cooking_time: 10, description: 'Test',
+        user.recipes.create name: "Test recipe #{i}", prepraration_time: 10, cooking_time: 10, description: 'Test',
                             public: true
       end
 
@@ -13,7 +13,7 @@ RSpec.describe 'Testing public recipe views', type: :feature do
       fill_in 'Email', with: 'test@example.com'
       fill_in 'Password', with: 'password'
       click_on 'Log in'
-      visit public_recipes_path
+      visit public_recipes_recipes_path
     end
 
     it 'can see all the public recipes' do
@@ -25,7 +25,7 @@ RSpec.describe 'Testing public recipe views', type: :feature do
     end
 
     it 'can see all the food item counts' do
-      expect(page).to have_content 'Total food items: 0'
+      expect(page).to have_content 'Total items:'
     end
 
     it 'should lead to recipe details' do

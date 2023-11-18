@@ -1,7 +1,7 @@
-<section class="recipe">
+<section class="recipe section">
   <ul>
     <% @public_recipes.each do |recipe| %>
-      <li>
+      <li class="">
         <div>
           <%=link_to recipe.name, recipe_path(recipe.id) %>
           <p><%= recipe.user.name %></p>

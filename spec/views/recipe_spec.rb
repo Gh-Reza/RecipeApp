@@ -5,7 +5,7 @@ RSpec.describe 'Testing recipe views', type: :feature do
     before(:each) do
       user = User.create name: 'Test', email: 'test@example.com', password: 'password'
       (1..5).each do |i|
-        user.recipes.create name: "Test recipe #{i}", preparation_time: 10, cooking_time: 10, description: 'Test',
+        user.recipes.create name: "Test recipe #{i}", prepraration_time: 10, cooking_time: 10, description: 'Test',
                             public: true
       end
 
