@@ -68,6 +68,7 @@
             <!-- Add links for your resources here -->
             <li><%= link_to 'Foods', foods_path %></li>
             <li><%= link_to 'Recipes', recipes_path %></li>
+          <li><%= link_to 'Public recipes', public_recipes_recipes_path %></li>
             <li><%= link_to 'General Shopping List', general_shopping_lists_path %></li>
             <% if user_signed_in? %>
                 <li><%= link_to 'Profile', edit_user_registration_path %></li>
