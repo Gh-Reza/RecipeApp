@@ -4,6 +4,7 @@ ruby '3.1.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.1'
+gem 'rails-controller-testing'
 
 gem 'pg'
 
@@ -55,24 +56,16 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri windows]
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '>= 3.9.0'
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
-
-  gem 'letter_opener'
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'rspec-rails', '>= 3.9.0'
+  # The following gems aids with the nuts and bolts
+  # of interacting with the browser.
+  gem 'webdrivers'
 end
 
 group :test do
