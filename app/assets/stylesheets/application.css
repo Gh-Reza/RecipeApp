@@ -136,11 +136,11 @@ tr:nth-child(even) {
   margin-bottom: 10px;
 }
 
+.name h3 {
+  font-size: 30px;
+}
+
 .name a h3 {
   font-size: 30px;
   font-weight: 300;
-}
-
-.name h3 {
-  font-size: 30px;
 }
