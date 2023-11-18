@@ -1,13 +1,16 @@
+<!-- application.html.erb -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe App</title>
+    <title><%= yield(:title) || 'My Blog' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "showRecipeDetails", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <!-- Add your custom styles here -->
@@ -68,7 +71,7 @@
             <!-- Add links for your resources here -->
             <li><%= link_to 'Foods', foods_path %></li>
             <li><%= link_to 'Recipes', recipes_path %></li>
-          <li><%= link_to 'Public recipes', public_recipes_recipes_path %></li>
+          <li><%= link_to 'Public recipes', public_recipes_path %></li>
             <li><%= link_to 'General Shopping List', general_shopping_lists_path %></li>
             <% if user_signed_in? %>
                 <li><%= link_to 'Profile', edit_user_registration_path %></li>
@@ -80,6 +83,12 @@
         </ul>
     </nav>
 </header>
+    <% if notice %>
+      <p class="alert alert-success px-10 py-2 bg-green-300"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger px-10 py-2 bg-red-300"><%= alert %></p>
+    <% end %>
 
 
 <%= yield %>

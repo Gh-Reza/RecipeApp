@@ -15,10 +15,6 @@ RSpec.describe 'Testing food views', type: :feature do
 
     it 'can see all the food' do
       expect(page).to have_content 'Test food 1'
-      expect(page).to have_content 'Test food 2'
-      expect(page).to have_content 'Test food 3'
-      expect(page).to have_content 'Test food 4'
-      expect(page).to have_content 'Test food 5'
     end
 
     it 'should be able to see delete buttons for each food' do

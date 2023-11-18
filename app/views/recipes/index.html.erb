@@ -1,18 +1,9 @@
-<section class="recipe section">
-  <h2 class="title">Recipes</h2>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li class="recipe-item">
-        <div>
-          <h2><%=link_to recipe.name, recipe_path(recipe.id), class: 'name' %></h2>
-          <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: 'btnCust'%>
-        </div>
-        <div>
-          <%= recipe.description %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= link_to "Add new recipe", new_recipe_path, class: 'btnCust btnMain' %>
-</section>
+<div class="flex justify-between items-center mb-10">
+  <h1 class="font-bold text-4xl">Recipes from <%= current_user.name %></h1>
+  <%= link_to "Add new recipe", new_recipe_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+</div>
+<ul class="flex flex-col gap-4">
+<% @recipes.each do |recipe| %>
+    <%= render partial: "recipe-card", locals: { recipe: recipe } %>
+<% end %>
+</ul>

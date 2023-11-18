@@ -1,84 +1,19 @@
-<section class="recipe-details section">
-  <h2 class="title"><%= @recipe.name %></h2>
-  <div class="recipe-details-body">
-    <div>
-      <p>Preparation time: <%= @recipe.prepraration_time %> hours</p>
-      <p>Cooking time: <%= @recipe.cooking_time %> hours</p>
-      <p>Description: <%= @recipe.description %></p>
-    </div>
-    <div>
-      <label for="checkbox">Public</label>
-      <label class="switch">
-        <input type="checkbox" class="toggle" name="checkbox" <%= @recipe.public ? 'checked' : '' %> />
-        <span class="slider round"></span>
-      </label>
-    </div>
+<h1 class="font-bold text-4xl mb-10 text-center"><%= @recipe.name %></h1>
+<div class="grid grid-cols-2 gap-y-4 mb-10 justify-items-start">
+  <h4 class="text-3xl">Preparation time: <span><%= @recipe.preparation_time %> minutes</span></h4>
+  <div class="row-span-2 justify-self-center text-xl">
+    This recipe is <span class="font-bold"><%= @recipe.public ? 'public' : 'Private' %></span>
+    <% if can? :manage, @recipe %>
+      <%= button_to "Make it #{@recipe.public ? 'private' : 'public'}", recipe_path(@recipe.id), class: 'underline', method: :patch %>
+    <% end %>
   </div>
-  <div class="link-box">
-    <%= link_to 'Generate shopping list' %>
-    <%= link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) %>
-  </div>
-  <div>
-<!--    <h3>Ingredients</h3>-->
-<!--    <ul>-->
-      <%# @foods.each do |food| %>
-<!--        <li><%#= food.name %> <%#= food.quantity %> <%#= food.measurement_unit %></li>-->
-      <%# end %>
-<!--    </ul>-->
-    <table>
-      <thead>
-        <tr>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>Value</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @recipe_foods.each do |item| %>
-          <tr>
-            <td><%= item.food.name %></td>
-            <td><%= item.quantity %> <%= item.food.measurement_unit %></td>
-            <td><%= item.food.price * item.quantity %></td>
-            <td>
-              <%= button_to "Edit"%>
-              <%#= link_to 'Delete', recipe_food_path(recipe_id: @recipe.id, id: item.food.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <%= button_to "Remove", recipe_food_path(item.id), method: :delete %>
-            </td>
-          </tr>
-        <% end %>
-    </table>
-  </div>
-</section>
-
-<script type="text/javascript" charset="utf-8">
-          var checkbox = document.querySelector('.toggle');
-        var recipeId = <%= @recipe.id %>;
-
-        checkbox.addEventListener('change', function() {
-            var isChecked = checkbox.checked;
-
-            fetch("<%= update_public_recipe_path(@recipe.id) %>", {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    "X-CSRF-Token": "<%= form_authenticity_token %>",
-                },
-                body: JSON.stringify({
-                    public: isChecked
-                }),
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error updating public status');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data.status);
-                })
-                .catch(error => {
-                    console.error(error.message);
-                });
-        });
-</script>
+  <h4 class="text-3xl mb-10">Cooking time: <span><%= @recipe.cooking_time %> minutes</span></h4>
+  <% if can? :manage, @recipe %>
+    <%= link_to "Generate shopping list", general_shopping_lists_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'border border-black p-2 rounded-lg cursor-pointer justify-self-end hover:opacity-60' %>
+  <% end %>
+</div>
+<% if @recipe.foods.present? %>
+  <%= render "table" %>
+<% end %>
+<p><%= @recipe.description %></p>

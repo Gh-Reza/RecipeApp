@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  # Other actions
+
   def index
     @food = Food.new
     @foods = current_user.foods

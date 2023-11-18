@@ -1,14 +1,13 @@
-<section class="section">
-  <h2 class="title">Add New Recipe</h2>
-  <div class="form-box">
-    <%= form_with model: @recipe, url: recipes_path, local: true, method: :post do |form|%>
-      <div>
-        <%= form.text_field :name, placeholder: "Name" %> <br>
-        <%= form.text_area :description, placeholder: "Description" %> <br>
-        <%= form.text_field :prepraration_time, placeholder: "Preparation Time" %> <br>
-        <%= form.text_field :cooking_time, placeholder: "Cook Time" %> <br>
-        <%= form.submit 'Add recipe' %>
-      </div>
-    <% end %>
-  </div>
-</section>
+  <h1 class="font-bold text-4xl mb-10">Create a new recipe</h1>
+  <%= form_with model: @recipe, html: { class: 'flex flex-col gap-4 items-start' } do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_field :name, placeholder: 'Recipe name' %>
+    <%= f.number_field :preparation_time, placeholder: 'Preparation Time (minutes)' %>
+    <%= f.number_field :cooking_time, placeholder: 'Cooking Time (minutes)' %>
+    <%= f.text_area :description, placeholder: 'Description', size: '50x5'%>
+    <div>
+      <%= f.label :public, "Public" %>
+      <%= f.check_box :public %>
+    </div>
+    <%= f.submit "Create recipe", class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60'%>
+  <% end %>
