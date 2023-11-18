@@ -32,6 +32,7 @@ body {
     width: 70%;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
 .recipe-item {
@@ -60,4 +61,49 @@ body {
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.title {
+    text-decoration: none;
+    color: #333;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    border-bottom: solid 2px #999;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.form-box {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.link-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
 }

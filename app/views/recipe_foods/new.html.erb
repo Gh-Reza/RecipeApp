@@ -1,9 +1,11 @@
-<section>
-  <h2>Add Ingredient</h2>
-  <%= form_for @new_ingredient, url: recipe_foods_path, method: :post do |form| %>
-    <%= form.select :food_id, options_for_select(@foods.map{ |food| [food.name, food.id] }), include_blank: 'Choose an ingredient' %>
-    <%= form.hidden_field :recipe_id, value: @recipe.id %>
-    <%= form.text_field :quantity, placeholder: 'Quantity' %>
-    <%= form.submit 'Add Ingredient' %>
-  <% end %>
+<section class="section">
+  <h2 class="title">Add Ingredient</h2>
+  <div class="form-box">
+    <%= form_for @new_ingredient, url: recipe_foods_path, method: :post do |form| %>
+      <%= form.select :food_id, options_for_select(@foods.map{ |food| [food.name, food.id] }), include_blank: 'Choose an ingredient'%> <br>
+      <%= form.hidden_field :recipe_id, value: @recipe.id %><br>
+      <%= form.text_field :quantity, placeholder: 'Quantity' %><br>
+      <%= form.submit 'Add Ingredient' %>
+    <% end %>
+  </div>
 </section>

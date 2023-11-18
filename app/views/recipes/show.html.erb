@@ -1,5 +1,5 @@
-<section class="recipe-details">
-  <h2><%= @recipe.name %></h2>
+<section class="recipe-details section">
+  <h2 class="title"><%= @recipe.name %></h2>
   <div class="recipe-details-body">
     <div>
       <p>Preparation time: <%= @recipe.prepraration_time %> hours</p>
@@ -14,7 +14,7 @@
       </label>
     </div>
   </div>
-  <div>
+  <div class="link-box">
     <%= link_to 'Generate shopping list' %>
     <%= link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) %>
   </div>
