@@ -33,7 +33,7 @@ RSpec.describe 'Recipes', type: :request do
     it 'returns http success' do
       expect(response).to have_http_status(:success)
     end
- 
+
     it 'renders correct template' do
       expect(response).to render_template(:show)
     end
